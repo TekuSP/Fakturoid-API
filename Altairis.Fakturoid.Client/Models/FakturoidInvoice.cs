@@ -210,7 +210,7 @@ public class FakturoidInvoice {
     /// <summary>
     /// Date of issue.
     /// </summary>
-    public DateTime IssuedOn { get; set; }
+    public DateTime? IssuedOn { get; set; }
 
     /// <summary>
     /// Chargeable event date.
