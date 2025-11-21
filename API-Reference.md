@@ -1,4 +1,4 @@
-# Altairis.Fakturoid.Client.dll v3.0.1.0 API documentation
+# Altairis.Fakturoid.Client.dll v3.1.0.0 API documentation
 
 # All types
 
@@ -1142,7 +1142,9 @@ Proxy class for working with invoices.
 |---|---|---|
 | [Cancel(int invoiceId)](#cancelint-invoiceid) | Task | Cancels the specified invoice asynchronously. |
 | [CreateAsync(FakturoidInvoice entity)](#createasyncfakturoidinvoice-entity) | Task<int> | Creates asynchronously the specified new invoice. |
+| [CreatePaymentAsync(int invoiceId, FakturoidInvoicePayment entity)](#createpaymentasyncint-invoiceid-fakturoidinvoicepayment-entity) | Task<int> | Creates asynchronously a payment for specified invoice. |
 | [DeleteAsync(int id)](#deleteasyncint-id) | Task | Deletes asynchronously invoice with specified id. |
+| [DeleteInvoicePaymentAsync(int invoiceId, int paymentId)](#deleteinvoicepaymentasyncint-invoiceid-int-paymentid) | Task | Deletes asynchronously the specified invoice payment. |
 | [DownloadAttachment(int invoiceId, int attachmentId)](#downloadattachmentint-invoiceid-int-attachmentid) | Task<byte[]> | Downloads the attachment for the specified invoice asynchronously. |
 | [DownloadPdfAsync(int id)](#downloadpdfasyncint-id) | Task<byte[]> | Downloads the PDF representation of the specified invoice asynchronously. |
 | [LockAsync(int invoiceId)](#lockasyncint-invoiceid) | Task | Locks the specified invoice asynchronously. |
@@ -1189,6 +1191,22 @@ Task<int>
 
 ID of newly created invoice.
 
+### CreatePaymentAsync(int invoiceId, FakturoidInvoicePayment entity)
+
+Creates asynchronously a payment for specified invoice.
+
+| Parameter | Type | Description |
+|---|---|---|
+| invoiceId | int |  |
+| entity | [FakturoidInvoicePayment](#fakturoidinvoicepayment-class) |  |
+
+
+### Returns
+
+Task<int>
+
+
+
 ### DeleteAsync(int id)
 
 Deletes asynchronously invoice with specified id.
@@ -1196,6 +1214,22 @@ Deletes asynchronously invoice with specified id.
 | Parameter | Type | Description |
 |---|---|---|
 | id | int | The contact id. |
+
+
+### Returns
+
+Task
+
+
+
+### DeleteInvoicePaymentAsync(int invoiceId, int paymentId)
+
+Deletes asynchronously the specified invoice payment.
+
+| Parameter | Type | Description |
+|---|---|---|
+| invoiceId | int |  |
+| paymentId | int |  |
 
 
 ### Returns
