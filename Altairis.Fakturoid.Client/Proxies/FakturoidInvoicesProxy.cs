@@ -447,5 +447,24 @@ public class FakturoidInvoicesProxy : FakturoidEntityProxy {
     public async Task<FakturoidInvoice> UpdateAsync(FakturoidInvoice entity) => entity == null
             ? throw new ArgumentNullException(nameof(entity))
             : await this.UpdateSingleEntityAsync(string.Format("invoices/{0}.json", entity.Id), entity);
+    
+    /// <summary>
+    /// Creates asynchronously a payment for specified invoice.
+    /// </summary>
+    /// <param name="invoiceId"></param>
+    /// <param name="entity"></param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentNullException"></exception>
+    public async Task<int> CreatePaymentAsync(int invoiceId, FakturoidInvoicePayment entity) => entity == null
+            ? throw new ArgumentNullException(nameof(entity))
+            : await this.CreateEntityAsync(string.Format("invoices/{0}/payments.json", invoiceId), entity);
+
+    /// <summary>
+    /// Deletes asynchronously the specified invoice payment.
+    /// </summary>
+    /// <param name="invoiceId"></param>
+    /// <param name="paymentId"></param>
+    public async Task DeleteInvoicePaymentAsync(int invoiceId, int paymentId) =>
+            await this.DeleteSingleEntityAsync(string.Format("invoices/{0}/payments/{1}.json", invoiceId, paymentId));
 
 }
